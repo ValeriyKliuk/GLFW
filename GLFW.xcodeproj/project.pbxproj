@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		333E26E51E8CA62000D92D98 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 333E26E41E8CA62000D92D98 /* main.swift */; };
+		333E26F21E8CA75700D92D98 /* libglfw3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 333E26F11E8CA75700D92D98 /* libglfw3.a */; };
+		333E26F41E8CA7B400D92D98 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333E26F31E8CA7B400D92D98 /* Cocoa.framework */; };
+		333E26F61E8CA7BE00D92D98 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333E26F51E8CA7BE00D92D98 /* OpenGL.framework */; };
+		333E26F81E8CA7CA00D92D98 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333E26F71E8CA7CA00D92D98 /* IOKit.framework */; };
+		333E26FA1E8CA7D400D92D98 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 333E26F91E8CA7D400D92D98 /* CoreVideo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +30,12 @@
 /* Begin PBXFileReference section */
 		333E26E11E8CA62000D92D98 /* GLFW */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GLFW; sourceTree = BUILT_PRODUCTS_DIR; };
 		333E26E41E8CA62000D92D98 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		333E26EC1E8CA66500D92D98 /* GLFW-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLFW-Bridging-Header.h"; sourceTree = "<group>"; };
+		333E26F11E8CA75700D92D98 /* libglfw3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglfw3.a; path = ../../../../usr/local/lib/libglfw3.a; sourceTree = "<group>"; };
+		333E26F31E8CA7B400D92D98 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		333E26F51E8CA7BE00D92D98 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		333E26F71E8CA7CA00D92D98 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		333E26F91E8CA7D400D92D98 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +43,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				333E26FA1E8CA7D400D92D98 /* CoreVideo.framework in Frameworks */,
+				333E26F81E8CA7CA00D92D98 /* IOKit.framework in Frameworks */,
+				333E26F61E8CA7BE00D92D98 /* OpenGL.framework in Frameworks */,
+				333E26F41E8CA7B400D92D98 /* Cocoa.framework in Frameworks */,
+				333E26F21E8CA75700D92D98 /* libglfw3.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +59,7 @@
 			children = (
 				333E26E31E8CA62000D92D98 /* GLFW */,
 				333E26E21E8CA62000D92D98 /* Products */,
+				333E26F01E8CA75700D92D98 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,8 +75,21 @@
 			isa = PBXGroup;
 			children = (
 				333E26E41E8CA62000D92D98 /* main.swift */,
+				333E26EC1E8CA66500D92D98 /* GLFW-Bridging-Header.h */,
 			);
 			path = GLFW;
+			sourceTree = "<group>";
+		};
+		333E26F01E8CA75700D92D98 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				333E26F91E8CA7D400D92D98 /* CoreVideo.framework */,
+				333E26F71E8CA7CA00D92D98 /* IOKit.framework */,
+				333E26F51E8CA7BE00D92D98 /* OpenGL.framework */,
+				333E26F31E8CA7B400D92D98 /* Cocoa.framework */,
+				333E26F11E8CA75700D92D98 /* libglfw3.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -95,6 +125,7 @@
 					333E26E01E8CA62000D92D98 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = C7TS7YA99B;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -219,8 +250,14 @@
 		333E26E91E8CA62000D92D98 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = C7TS7YA99B;
+				HEADER_SEARCH_PATHS = /usr/local/include/;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GLFW/GLFW-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -228,8 +265,13 @@
 		333E26EA1E8CA62000D92D98 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = C7TS7YA99B;
+				HEADER_SEARCH_PATHS = /usr/local/include/;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GLFW/GLFW-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
